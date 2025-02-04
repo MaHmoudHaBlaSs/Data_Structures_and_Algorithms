@@ -8,7 +8,9 @@ class Solution {
             while (j < s.length() && s.charAt(j) != ' '){
                 str.append(s.charAt(j));
                 j++;
-            }
+                // Last Break will be when J == Length, 
+                //when the outter loop will increament it by 1 so it j == length+1 at the end (check last return statement) line 23
+            } 
             String word = str.toString();
 
             if (map.containsKey(pattern.charAt(i))){
