@@ -10,12 +10,10 @@ class Solution {
             
             if (map.containsKey(sum)){
                 diff = i-map.get(sum);
-
                 if (diff > maxLen)
                     maxLen = diff; 
-            } else {
+            }else 
                 map.put(sum, i);
-            }
         }
         return maxLen;
     }
