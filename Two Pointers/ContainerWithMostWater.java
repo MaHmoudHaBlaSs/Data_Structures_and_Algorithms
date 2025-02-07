@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/container-with-most-water/
 
 class Solution {
+    // T: O(n)
     public int maxArea(int[] height) {
         int left = 0, right = height.length-1;
         int maxArea = 0;
