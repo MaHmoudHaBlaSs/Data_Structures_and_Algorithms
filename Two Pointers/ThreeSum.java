@@ -1,10 +1,12 @@
 // https://leetcode.com/problems/3sum/
 
 class Solution {
+    // T: O(n2) + O(nLogn(n)) >> O(n2)
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums); // O(nLog(n))
         List<List<Integer>> triplets = new LinkedList<>();
 
+        // T: O(n*m) >> O(n2)
         for (int i = 0; i < nums.length; i++){
             int target = nums[i]*-1;
             int left = i+1, right = nums.length-1;
