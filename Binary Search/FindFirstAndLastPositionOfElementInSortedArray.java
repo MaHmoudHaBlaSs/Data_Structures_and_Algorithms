@@ -13,15 +13,15 @@ class Solution {
                 left = mid+1;
             else {
                 int i = mid;
-                while ((i >= 0) && (nums[i] == target)){
+                while ((i >= 0) && (nums[i] == target))
                     i--;
-                }
                 pos[0] = i+1; 
+                
                 i = mid;
-                while ((i <= nums.length-1) && (nums[i] == target)){
+                while ((i <= nums.length-1) && (nums[i] == target))
                     i++;
-                }
                 pos[1] = i-1;
+                
                 return pos;
             }
         }
