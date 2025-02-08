@@ -11,7 +11,7 @@ class Solution {
             if (nums[left] <= nums[midInd]){ // mid belongs to left portion
                 // Does our target lays in left portion?
                 if (target < nums[midInd] && target >= nums[left])
-                    right = midInd-1;
+                    right = midInd-1; // target lays after mid
                 else 
                     left = midInd+1;
             } else { // mid belongs to right portion
@@ -19,7 +19,7 @@ class Solution {
                 if (target <= nums[right] && target > nums[midInd])
                     left = midInd+1;
                 else
-                    right = midInd-1;
+                    right = midInd-1; // target lays before mid
             }
         }
         return -1;
