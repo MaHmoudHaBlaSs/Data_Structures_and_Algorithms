@@ -18,18 +18,14 @@
 class Solution {
     int maxDiam = 0;
     public int diameterOfBinaryTree(TreeNode root) {
-        getMaxH(root);
+        dfs(root);
         return maxDiam;
     }
-    public int getMaxH(TreeNode node){
-        if (node != null){
-            int leftH = getMaxH(node.left);
-            int rightH = getMaxH(node.right);
-            if (leftH+rightH > maxDiam)
-                maxDiam = leftH+rightH;
-            return 1+Math.max(leftH, rightH);
-        }
-        else
-            return 0;
+    public int dfs(TreeNode node){
+        if (node == null) {return 0;}
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        maxDiam = Math.max(maxDiam, left+right);
+        return 1+Math.max(left, right);
     }
 }
