@@ -4,6 +4,7 @@ class Solution {
     public int findPeakElement(int[] nums) {
         int left = 0, right = nums.length-1;
 
+        // T: O(Log(n))
         while (left <= right){
             int mid = (left+right)/2;
 
