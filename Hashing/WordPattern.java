@@ -1,25 +1,26 @@
 class Solution {
+    // T: O(n*m) where m is the length og n'th word.          S: O(n)
     public boolean wordPattern(String pattern, String s) {
         HashMap<Character, String> map = new HashMap<>();
+        int i = 0;
 
-        int i,j;
-        for (i = 0, j = 0; i < pattern.length(); i++, j++){
-            StringBuilder str = new StringBuilder();
-            while (j < s.length() && s.charAt(j) != ' '){
-                str.append(s.charAt(j));
-                j++;
-                // Last Break will be when J == Length, 
-                //when the outter loop will increament it by 1 so it j == length+1 at the end (check last return statement) line 23
-            } 
-            String word = str.toString();
-
-            if (map.containsKey(pattern.charAt(i))){
-                if (!map.get(pattern.charAt(i)).equals(word)) return false;
+        for (Character c: pattern.toCharArray()){
+            StringBuilder tempWord = new StringBuilder();
+            while (i < s.length() && s.charAt(i) != ' '){
+                tempWord.append(s.charAt(i));
+                i++;
+                // Last Break will be when i == Length, 
+                // And the outter loop will increament it by 1 to be = length+1
+            }
+            String word = tempWord.toString();
+            if (map.containsKey(c)){
+                if (!map.get(c).equals(word)) return false;
             }else{
                 if (map.containsValue(word)) return false;
-                else map.put(pattern.charAt(i), word);
+                map.put(c, word);
             }
+            i++;
         }
-        return i == pattern.length() && j == s.length()+1;
+        return i == s.length()+1;
     }
 }
