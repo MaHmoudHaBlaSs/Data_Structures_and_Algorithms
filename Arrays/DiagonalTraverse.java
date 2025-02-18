@@ -1,7 +1,8 @@
 // https://leetcode.com/problems/diagonal-traverse/description/
 
 class Solution {
-public  int[] findDiagonalOrder(int[][] mat) {
+    // T: O(n*m)      S: O(n*m)
+    public  int[] findDiagonalOrder(int[][] mat) {
         int rows = mat.length, cols = mat[0].length;
         int i = 0, j = 0, ind = 0;
         int[] arr = new int[rows*cols];
