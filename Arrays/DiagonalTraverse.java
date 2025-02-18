@@ -10,7 +10,7 @@ public  int[] findDiagonalOrder(int[][] mat) {
         // Initially set to Up.
 
         while (i < rows && j < cols){
-            arr[ind] = mat[i][j];
+            arr[ind++] = mat[i][j];
             
             if (goingUp) { // Up
                 i--; j++;
@@ -33,7 +33,6 @@ public  int[] findDiagonalOrder(int[][] mat) {
                     goingUp = true;
                 }
             }
-            ind++;
         }
         return arr;
     }
