@@ -1,20 +1,16 @@
 // https://leetcode.com/problems/balanced-binary-tree/
 
 class Solution {
-    int diff = 0;
+    boolean balanced = true;
     public boolean isBalanced(TreeNode root) {
-        dfs(root);
-        return (diff < 2);
+        getHeight(root);
+        return balanced;
     }
-    public int dfs(TreeNode node){
-        if (node != null){
-            int leftH = dfs(node.left);
-            int rightH = dfs(node.right);
-            if (Math.abs(leftH - rightH) > diff)
-                diff = Math.abs(leftH - rightH);
-            return 1+Math.max(leftH, rightH);
-        }
-        else
-            return 0;
+    public int getHeight(TreeNode node){
+        if (node == null) return 0;
+        int leftH = getHeight(node.left);
+        int rightH = getHeight(node.right);
+        if (Math.abs(leftH-rightH) > 1) balanced = false;
+        return 1 + Math.max(leftH, rightH);
     }
 }
