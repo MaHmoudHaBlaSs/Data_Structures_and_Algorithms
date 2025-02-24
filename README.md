@@ -27,4 +27,4 @@ The problems in this repository are from LeetCode and are based on the ***Neetco
 
 - **Mahmoud Hablass**: [GitHub Profile](https://github.com/MaHmoudHaBlaSs)
 
-Feel free to explore the repository and contribute to the projects. Happy coding!
+Feel free to explore the repository and imporve, add, document solutions. Happy coding!
