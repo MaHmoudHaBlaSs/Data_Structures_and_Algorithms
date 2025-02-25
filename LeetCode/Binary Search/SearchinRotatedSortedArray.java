@@ -1,4 +1,7 @@
+// https://leetcode.com/problems/search-in-rotated-sorted-array/description/
+
 class Solution {
+    // T:O(Log(n))       S: O(1)
     public int search(int[] nums, int target) {
         int left = 0, right = nums.length-1;
 
