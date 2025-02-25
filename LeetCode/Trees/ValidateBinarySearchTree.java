@@ -4,6 +4,8 @@ class Solution {
 
     public boolean isValidBST(TreeNode root) {
         // used double instead of integer to avoid edge cases when node.val is equal to integer.max or min values
+        // because Integer.max or min value could be possible value and can't be used as infinity 
+        // so to simulate infinity value we use larger data type such long or double.
         return dfs(root, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
     }
     public boolean dfs(TreeNode node, double min, double max) {
