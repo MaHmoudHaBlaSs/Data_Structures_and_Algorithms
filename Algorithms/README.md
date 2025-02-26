@@ -44,7 +44,7 @@ We welcome contributions! Follow the guidelines below to add new algorithms, imp
 <details>
   <summary>📌 Adding a New Algorithm</summary>
 
-### 1️⃣ Choose a Category  
+#### 1️⃣ Choose a Category  
 - Place your algorithm in the appropriate section (e.g., Divide and Conquer, Backtracking).  
 - If a category doesn’t exist, feel free to create one.  
 
