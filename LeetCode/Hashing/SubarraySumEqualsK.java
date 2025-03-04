@@ -2,17 +2,14 @@
 
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        HashMap<Integer, Integer> map = new HashMap<>(); map.put(0,1);
-        int sum = 0, validArrs = 0;
-
-        for (int i = 0; i < nums.length; i++){
-            sum += nums[i];
-            
-            if (map.containsKey(sum-k))
-                validArrs += map.get(sum-k);
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int sum = 0, arrays = 0;
+        for (int num: nums){
+            sum += num;
+            arrays += map.getOrDefault(sum-k, 0);
             map.put(sum, map.getOrDefault(sum, 0)+1);
         }
-
-        return validArrs; 
+        return arrays;
     }
 }
