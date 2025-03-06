@@ -1,23 +1,23 @@
 // https://leetcode.com/problems/subsets/description/
 
+// T: O(n* 2^n)      S: O(n)
 class Solution {
-    List<List<Integer>> groups = new ArrayList<>();
+    List<List<Integer>> groups = new LinkedList<>();
+    List<Integer> temp = new LinkedList<>();
     
-    // T: O(n* 2^n)      S: O(n)
     public List<List<Integer>> subsets(int[] nums) {
-        dfs(nums, new ArrayList<>(), 0);
+        dfs(nums, 0);
         return groups;
     }
-
-    public void dfs(int[] nums, ArrayList list, int i){
+    
+    public void dfs(int[] nums, int i){
         if (i == nums.length){
-            groups.add(list.stream().toList());
+            groups.add(new ArrayList<>(temp));
             return;
-        }    
-        list.add(nums[i]);
-        dfs(nums, list, i+1);
-
-        list.remove(Integer.valueOf(nums[i]));
-        dfs(nums, list, i+1);
+        }
+        temp.add(nums[i]);
+        dfs(nums, i+1);
+        temp.removeLast();
+        dfs(nums, i+1);
     }
 }
