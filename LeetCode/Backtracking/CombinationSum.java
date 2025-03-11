@@ -1,23 +1,27 @@
 // https://leetcode.com/problems/combination-sum/description/
 
-// Beats 5% Need to be optimized.
+// Optimal Backtracking Solution.
 class Solution {
-    Set<List<Integer>> combs = new HashSet<>();
-    
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        dfs(candidates, target, new LinkedList<>(), 0);
-        return combs.stream().toList();
-    }
 
-    public void dfs (int[] candidates, int target, List<Integer> list, int sum){
-        for (int i = 0; i < candidates.length; i++){
+    List<List<Integer>> combs = new LinkedList<>();
+    List<Integer> list = new LinkedList<>();
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        recurse(candidates, 0, target, 0);
+        return combs;
+    }
+    // stemp parameter is used to avoid duplicate decisions again.
+    public void recurse(int[] candidates, int sum, int target, int step){
+        if (sum >= target){
+            if (sum == target)
+                combs.add(new LinkedList<>(list)); 
+            return;
+        }
+        
+        for (int i = step; i < candidates.length; i++){
             list.add(candidates[i]);
-            Collections.sort(list);
-            if (sum+candidates[i] == target)
-                combs.add(new LinkedList<>(list));
-            else if (sum+candidates[i] < target)
-                dfs(candidates, target, new LinkedList<>(list),sum+candidates[i]);
-            list.remove(Integer.valueOf(candidates[i]));
+            recurse(candidates, sum+candidates[i], target, i);
+            list.removeLast();
         }
     }
 }
