@@ -20,5 +20,7 @@ This repository contains a comprehensive collection of data structures and algor
 ## Contributor
 
 - **Mahmoud Hablass**: [GitHub Profile](https://github.com/MaHmoudHaBlaSs)
+- **Mahmoud El-Baz**: [GitHub Profile](https://github.com/MHMOUD-ELBAZ)
+- **Abdullah Mohammed**: [GitHub Profile](https://github.com/Abdallahmoh443)
 
 Feel free to explore the repository and imporve, add, document solutions. Happy coding!
