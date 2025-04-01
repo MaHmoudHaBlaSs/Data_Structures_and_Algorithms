@@ -1,8 +1,9 @@
 /// https://leetcode.com/problems/boats-to-save-people/
 
-//Greedy approach is to take a heavy person with a thin person (if possible) 
+// Greedy approach is to take a heavy person with a thin person (if possible) 
 
-//T: O(N.log(N))              S:O(1)
+// Optimal.
+// T: O(N.log(N))              S:O(1)
 class Solution {
     public int numRescueBoats(int[] people, int limit) {
         Arrays.sort(people); 
