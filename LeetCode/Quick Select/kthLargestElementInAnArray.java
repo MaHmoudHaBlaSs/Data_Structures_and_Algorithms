@@ -10,17 +10,17 @@ class Solution {
     }
 
     public int quickSelect(int[] nums, int low, int high, int target) {
-        while (low <= high) { 
+        if (low <= high) {
             int index = partition(nums, low, high);
             if (index == target) {
-                return nums[index]; 
+                return nums[index];
             } else if (index > target) {
-                high = index - 1;
+                quickSelect(nums, low, index - 1,target);
             } else {
-                low = index + 1;
+                quickSelect(nums, index+1, high,target);
             }
         }
-        return nums[target]; 
+        return nums[target];
     }
 
     public int partition(int[] nums, int left, int right) {
