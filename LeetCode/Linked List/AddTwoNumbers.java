@@ -24,3 +24,41 @@ class Solution {
         return head.next;
     }
 }
+
+
+
+// Another Solution Idea
+
+class Solution {
+   public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        StringBuilder num1 = new StringBuilder();
+        StringBuilder num2 = new StringBuilder();
+        while (l1 != null) {
+            num1.append(l1.val);
+            l1 = l1.next;
+        }
+        while (l2 != null) {
+            num2.append(l2.val);
+            l2 = l2.next;
+        }
+        num1.reverse();
+        num2.reverse();
+
+        java.math.BigInteger n1 = new java.math.BigInteger(num1.toString());
+        java.math.BigInteger n2 = new java.math.BigInteger(num2.toString());
+        java.math.BigInteger sum = n1.add(n2);
+
+
+        String sumStr = sum.toString();
+
+
+        ListNode res = new ListNode(-1);
+        ListNode curr = res;
+        for(int i = sumStr.length() - 1 ; i >= 0    ; i--){
+            curr.next = new ListNode(Integer.parseInt(String.valueOf(sumStr.charAt(i))));
+            curr = curr.next;
+        }
+        return res.next;
+
+    }
+}
