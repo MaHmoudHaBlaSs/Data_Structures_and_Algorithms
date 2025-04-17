@@ -17,7 +17,7 @@ This repository contains a comprehensive collection of data structures and algor
 - Data Structures: [Data Structures Notion Page](https://walnut-crocus-562.notion.site/Data-Structures-a9df3164e6564c97a6277199a470125b?pvs=4)
 - Algorithms: [Algorithms Notion Page](https://walnut-crocus-562.notion.site/Algorithms-12a6ce80c316800ea2ceca52df7be04d?pvs=4)
 
-## Contributor
+## Contributors
 
 - **Mahmoud Hablass**: [GitHub Profile](https://github.com/MaHmoudHaBlaSs)
 - **Mahmoud El-Baz**: [GitHub Profile](https://github.com/MHMOUD-ELBAZ)

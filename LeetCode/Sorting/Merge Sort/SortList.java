@@ -23,10 +23,10 @@ class Solution {
         ListNode mid = midPrev.next;
         midPrev.next = null;
 
-        ListNode left = sortList(head);
-        ListNode right = sortList(mid);
+        ListNode left = sortList(head); // Divide
+        ListNode right = sortList(mid); // Divide
 
-        return merge(left, right);
+        return merge(left, right); // Conquer
 
 
     }
@@ -35,6 +35,9 @@ class Solution {
         ListNode fast = head;
         ListNode prev = null;
 
+        // We use previous pointer to cut the list at middle or middle-1 index
+        // The crucial reason to use it instead of only using slow pointer and cut the list at middle or middle+1 index 
+        // is that slow pointer selection will cause infinite recursion with list of length 2
         while (fast != null && fast.next != null) {
             prev = slow;
             slow = slow.next;
