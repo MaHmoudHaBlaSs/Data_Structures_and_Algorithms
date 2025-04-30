@@ -1,10 +1,11 @@
 /// https://leetcode.com/problems/car-fleet/
 
 
-//Sort cars by position, If current car takes longer to reach target than the car ahead then
-//it cannot catch up and forms a new fleet, Otherwise, it will catch up and join the fleet
+// Sort cars by position, If current car takes longer to reach target than the car ahead then
+// it cannot catch up and forms a new fleet, Otherwise, it will catch up and join the fleet
+// Start from last car as it has the only final-known speed of its own fleet [n -> 0]
 
-//Time: O(n)       Space: O(n)
+//Time: O(nLog(n))       Space: O(n)
 class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
         int n = position.length;
@@ -22,7 +23,6 @@ class Solution {
         int fleets = 0;
         double maxTime = 0;
         
-
         for (int i = n - 1; i >= 0; i--) {
             if (cars[i][1] > maxTime) {
                 fleets++;
