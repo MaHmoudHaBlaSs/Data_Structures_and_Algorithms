@@ -21,20 +21,14 @@ class Solution {
 // Bottom-Up DP
 // T: O(n)                    S: O(1)
 class Solution {
-    public int minCostClimbingStairs(int[] costs) {
-        int n = costs.length;
-        int op1 = costs[0];
-        int op2 = costs[1];
-        int curr = 0;
-        
-        for (int i = 2; i < n+1; i++){
-            // if you reached the roof check which step from last two steps were
-            // More efficient (less cost)
-            curr = Math.min(op1, op2) + ((i == n)? 0: costs[i]);
-            op1 = op2;
-            op2 = curr;
-        }
+    public int minCostClimbingStairs(int[] cost) {
+        int a = 0, b = 0, x = 0;
 
-        return curr;
+        for (int i = 2; i <= cost.length; i++){
+            x = Math.min(cost[i-1]+a, cost[i-2]+b);
+            b = a;
+            a = x;
+        }
+        return x;
     }
 }
