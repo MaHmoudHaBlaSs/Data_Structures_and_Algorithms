@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/two-sum-iv-input-is-a-bst
 
-# T: O(n^2)      S: O(n) >> recursive
+# T: O(n)      S: O(n)
 class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         seen = set()
