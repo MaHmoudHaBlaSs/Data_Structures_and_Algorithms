@@ -23,6 +23,23 @@ class Solution {
         }
 
         return count;
+    }
+}
 
+class Solution {
+    public int magicalString(int n) {
+        int ones = 1;
+        Deque<Integer> dq = new LinkedList<>(List.of(1, 1));
+
+        n -= 3;
+        while (n-- > 0) {
+            int polled = dq.pollFirst();
+            ones += (polled == 1)? 1: 0;
+
+            int next = (dq.getLast() == 1)? 2: 1;
+            while (polled-- > 0)
+                dq.addLast(next);
+        }
+        return ones;
     }
 }
