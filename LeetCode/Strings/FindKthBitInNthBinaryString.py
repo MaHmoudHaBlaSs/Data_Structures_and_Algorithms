@@ -15,7 +15,6 @@ class Solution:
             return ans
 
             
-
         def getS(i):
             if i == 1: return "0"
             prev = getS(i - 1)
@@ -23,3 +22,20 @@ class Solution:
             return prev + "1" + reverseInvert(prev)
         
         return getS(n)[k - 1]
+
+
+class Solution:
+    def constructString(self, n: int) -> List:
+        if n == 1:
+            return ['0']
+
+        prev = self.constructString(n-1)
+        curr = prev[:]
+
+        curr.append('1')
+        prev.reverse()
+        curr.extend(['1' if c == '0'else '0' for c in prev])
+        return curr
+
+    def findKthBit(self, n: int, k: int) -> str:
+        return self.constructString(n)[k-1]
