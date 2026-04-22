@@ -4,11 +4,13 @@
 class Solution {
         int solCount;
         String result;
+
         public String getHappyString(int n, int k) {
-            result="";
+            result = "";
             backtrack(new StringBuilder(),n,k);
             return result;
         }
+
         public void backtrack(StringBuilder s ,int  n  , int k){
             if(s.length() == n ){
                 solCount++; // found new sol
@@ -17,21 +19,18 @@ class Solution {
                 }
                 return;
             }
+
             char[] options = {'a','b','c'};
             for(char ch : options){
-
-                if(!s.isEmpty()&& s.charAt(s.length() - 1) == ch ) continue;
+                
+                // Don't recurse if 1. the next branch char is equal to the last choosen char, 2. we found the solution.
+                if ( (!s.isEmpty() && s.charAt(s.length() - 1) == ch) || !result.equals("") )
+                    continue;
 
                 s.append(ch); // do
                 backtrack(s,n,k); // recurse
-
-
-                if (!result.equals("")) return; // that's mean we found the solution
-                
                 s.deleteCharAt(s.length() - 1 ); // undo
 
             }
-
-
         }
 }

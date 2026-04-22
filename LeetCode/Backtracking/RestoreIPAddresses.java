@@ -9,7 +9,7 @@ class Solution {
         return sol;
     }
     public void backtrack(int startIdx , String s,int countOfDos){
-        if(countOfDos == 4 && startIdx == s.length()){
+        if(countOfDos == 4 && startIdx == s.length()){ // Base Condition
 
             String validPath ="";
 
@@ -22,6 +22,11 @@ class Solution {
             
             sol.add(validPath.substring(0,validPath.length()-1));
         }
+
+        // To avoid go beyond the base condition and avoid going into branches that can not be the solution
+        // Ex: if left string is 5511135 -> len = 7 and we have 2 more steps so (7/2) = 3.5 (slot has 3 slots) -> useless branch
+        if (countOfDos == 4 || ((s.length() - startIdx) / (4 - countOfDos) > 3)) 
+            return;
 
         for (int len = 1; len <= 3; len++) {
             // 1. Boundary Check: Make sure we don't go past the end of the string
