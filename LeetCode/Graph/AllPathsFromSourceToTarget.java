@@ -24,3 +24,34 @@ class Solution {
         }   
     }
 }
+
+//BFS
+class Solution {
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
+        List<List<Integer>> paths = new ArrayList<>();
+        Queue<List<Integer>> queue = new LinkedList<>();
+        queue.offer(new ArrayList<>(Arrays.asList(0)));
+
+        for(int i = 0 ; i < graph.length ; i++){
+            int nodeCount = queue.size();
+
+            for(int j = 0 ; j < nodeCount ; j++){
+            
+                List<Integer> currentPath = queue.poll();
+                int lastNode = currentPath.get(currentPath.size() - 1);
+            
+                if(lastNode == graph.length-1){
+                    paths.add(currentPath);
+                } else {
+                    for (int neighbor : graph[lastNode]) {
+                        List<Integer> newPath = new ArrayList<>(currentPath);
+                        newPath.add(neighbor);
+                        queue.offer(newPath);
+                    }
+                }
+            
+            }
+        }
+        return paths;
+    }
+}
