@@ -1,0 +1,13 @@
+/// https://leetcode.com/problems/minimum-prefix-removal-to-make-array-strictly-increasing/description/
+
+class Solution {
+    public int minimumPrefixLength(int[] nums) {
+    
+        for(int i=nums.length-2; i>=0; --i){
+            if(nums[i] >= nums[i+1]) 
+                return i+1;
+        }
+
+        return 0;
+    }
+}
