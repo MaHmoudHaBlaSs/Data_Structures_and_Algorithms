@@ -46,3 +46,50 @@ class Solution {
         return -1;
     }
 }
+
+
+class Solution {
+    public int numBusesToDestination(int[][] routes, int source, int target) {
+
+        Map <Integer, List<Integer>> stopsGraph = new HashMap<>(); // stop -> buses
+        for (int bus = 0; bus < routes.length; bus++) {
+            for (int stop : routes[bus]) {
+                if ( !stopsGraph.containsKey(stop) )
+                    stopsGraph.put(stop, new LinkedList<>(List.of(bus))); 
+                else
+                    stopsGraph.get(stop).add(bus);
+            }
+        }
+        
+        Queue<Integer> queue = new LinkedList<>();
+        Set<Integer> visitedStops = new HashSet<>();
+        Set<Integer> visitedBuses = new HashSet<>();
+        queue.offer(source);
+        visitedStops.add(source);
+        int busesTaken = 0; 
+        
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            
+            for (int i = 0; i < size; i++) {
+                int currentStop = queue.poll();
+                if (currentStop == target) return busesTaken;
+
+                for (int bus : stopsGraph.getOrDefault(currentStop, new LinkedList<>())) {
+                    if (!visitedBuses.contains(bus)) {
+                        visitedBuses.add(bus);
+                        for (int nextStop : routes[bus]) {
+                            if (!visitedStops.contains(nextStop)) {
+                                visitedStops.add(nextStop);
+                                queue.offer(nextStop);
+                            }
+                        }
+                    }
+                }
+                
+            }
+            busesTaken++;
+        }
+        return -1;
+    }
+}
