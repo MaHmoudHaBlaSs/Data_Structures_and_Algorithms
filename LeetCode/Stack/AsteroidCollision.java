@@ -37,3 +37,46 @@ class Solution {
         return (x > 0 && y > 0) || ( x  < 0 && y < 0 );
     }
 }
+
+// more readable solution
+class Solution {
+    public int[] asteroidCollision(int[] asteroids) {
+        int n = asteroids.length;
+        boolean[] alive = new boolean[n];
+        Deque<Integer> stack = new ArrayDeque<>();
+        int size = 0;
+
+        for(int i=0; i<n; ++i){
+            int ast = asteroids[i];
+
+            if(ast > 0){
+                stack.addLast(i);
+            }else{
+                ast *= -1;
+                int removed = -1;
+
+                while(!stack.isEmpty() && ast >= asteroids[stack.peekLast()]){
+                    removed = asteroids[stack.removeLast()];
+                    if(removed == ast) break;
+                } 
+
+                if(stack.isEmpty() && removed != ast){
+                    alive[i] = true;
+                    size++;
+                }
+            }
+        }
+
+        size += stack.size();
+        for(int i : stack) alive[i] = true;
+
+        int[] ans = new int[size];
+        int j = 0;
+        for(int i=0; i<n; ++i){
+            if(alive[i]) 
+                ans[j++] = asteroids[i];
+        }
+
+        return ans;
+    }
+}
