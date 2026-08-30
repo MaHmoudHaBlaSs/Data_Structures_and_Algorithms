@@ -1,3 +1,5 @@
+# https://leetcode.com/problems/tuple-with-same-product/
+
 import math
 
 class Solution:
